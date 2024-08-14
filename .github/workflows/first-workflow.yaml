@@ -1,0 +1,16 @@
+name: First Workflow
+on:
+  - push
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hello, World"
+      - name: Mutiline command
+        run: | 
+          go version
+          echo "Let's Go!"
+          echo "We'll be a CI/CD wizz in no time :D"
+
