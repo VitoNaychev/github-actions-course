@@ -20,8 +20,9 @@ jobs:
         run: sw_vers
   dependant-job:
     runs-on: windows-latest
+    needs: [example-job] 
     steps:
       - name: echo a string
         run: Write-Output "Windows String"
       - name: Error Step
-        run: doesnotexist
+        run: doesnotexisttt
