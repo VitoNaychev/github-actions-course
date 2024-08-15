@@ -13,4 +13,15 @@ jobs:
           go version
           echo "Let's Go!"
           echo "We'll be a CI/CD wizz in no time :D"
-
+  parallel-job:
+    runs-on: macos-latest
+    steps:
+      - name: View SW Version
+        run: sw_vers
+  dependant-job:
+    runs-on: windows-latest
+    steps:
+      - name: echo a string
+        run: Write-Output "Windows String"
+      - name: Error Step
+        run: doesnotexist
