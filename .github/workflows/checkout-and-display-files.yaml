@@ -1,0 +1,14 @@
+name: Checkout
+on: [push]
+
+jobs:
+  checkout-and-display-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files Before
+        run: ls -a
+      - name: Checkout
+        run: |
+          git clone https://github.com/$GITHUB_REPOSITORY
+      - name: List Files After
+        run: ls -a
