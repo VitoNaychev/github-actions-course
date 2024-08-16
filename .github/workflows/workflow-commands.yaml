@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set env variable
-        run:  echo "MY_SECRET=\"Hello, Actions!\" >> $GITHUB_ENV 
+        run:  echo "MY_SECRET=\"Hello, Actions!\""" >> $GITHUB_ENV 
       - name: Setting an error message
         run: echo "::error::Missing semicolon"
       - name: Setting an error message with parameters
