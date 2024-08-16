@@ -23,6 +23,6 @@ jobs:
           echo "Inside group"
           echo "::endgroup::"
       - name: Masking a value
-        run: echo "::add-mask::$MY_SECRET"
+        run: echo "::add-mask::${{ env.MY_SECRET }}"
       - name: Echo a secret
-        run: echo "Secret String"
+        run: echo $MY_SECRET
