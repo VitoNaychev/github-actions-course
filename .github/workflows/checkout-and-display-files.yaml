@@ -9,6 +9,6 @@ jobs:
         run: ls -a
       - name: Checkout
         run: |
-          git clone https://github.com/$GITHUB_REPOSITORY
+          git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
       - name: List Files After
         run: ls -a
