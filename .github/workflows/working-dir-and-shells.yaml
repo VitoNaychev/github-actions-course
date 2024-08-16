@@ -24,7 +24,12 @@ jobs:
         run: |
           Get-Location
           dir
-          ls -a
           echo $env:GITHUB_SHA
           echo $env:GITHUB_REPOSITORY
           echo $env:GITHUB_WORKSPACE
+      - name: Python Shell
+        shell: python
+        run: |
+          a = 10 + 5
+          print("Hello, World!")
+          print("10 + 5 is ", a)
