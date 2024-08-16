@@ -15,3 +15,12 @@ jobs:
         run: echo "::warning title=Warning title,file=main.go,line=8,endLine=9,col=5,endColumn=7::Missing Semicolon"
       - name: Setting an notice message with parameters
         run: echo "::notice title=Notice title,file=main.go,line=8,endLine=9,col=5,endColumn=7::Missing Semicolon"
+      - name: Group of logs
+        run: |
+          echo "::group::My group title"
+          echo "Inside group"
+          echo "::endgroup::"
+      - name: Masking a value
+        run: echo "::add-mask::Secret String"
+      - name: Echo a secret
+        run: echo "Secret String"
