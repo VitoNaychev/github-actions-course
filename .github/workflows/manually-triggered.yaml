@@ -1,9 +1,34 @@
 name: Manually Triggered
 on:
   workflow_dispatch:
-  
+    inputs: 
+      string:
+        description: A string input
+        type: string
+        required: true
+        default: "Default value"
+      number:
+        description: This is a number input
+        type: number
+        default: 42
+      option:
+        description: This is a list of options
+        required: true
+        default: 'production' 
+        type: choice
+        options:
+          - 'production'
+          - 'staging'
+          - 'development'
+      enviornment:
+        description: Envioronment
+        type: environment
+        required: true
+
 jobs:
   log-info:
     runs-on: ubuntu-latest
     steps:
       - run: echo $GITHUB_REF
+      - run: |
+          echo "String: ${{ inputs.string }}"
