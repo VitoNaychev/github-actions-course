@@ -36,3 +36,4 @@ jobs:
           echo $STEP_LEVEL_ENV
           echo $WF_LEVEL_ENV
           echo $JOB_LEVEL_ENV
+          echo $MULTI_LINE_ENV
