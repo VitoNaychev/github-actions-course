@@ -19,12 +19,12 @@ jobs:
         run: |
           echo "NEW_ENV_VAR=$(date)" >> $GITHUB_ENV
           echo "JOB_LEVEL_ENV=$RANDOM" >> $GITHUB_ENV
-          echo "MULTI_LINE_ENV<<%%% \
-          Is this gonna work \
-          I don't really know \
-          But there is one way \
-          To find out ;) \
-          %%%" >> $GITHUB_ENV
+          echo "MULTI_LINE_ENV<<%%%" >> $GITHUB_ENV
+          echo "Is this gonna work" >> $GITHUB_ENV
+          echo "I don't really know" >> $GITHUB_ENV
+          echo "But there is one way" >> $GITHUB_ENV
+          echo "To find out ;)" >> $GITHUB_ENV
+          echo "%%%" >> $GITHUB_ENV
           echo 
       - name: Log Custom ENV Vars
         env:
