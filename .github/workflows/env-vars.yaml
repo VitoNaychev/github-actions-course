@@ -18,6 +18,7 @@ jobs:
       - name: Set Env Var
         run: |
           echo "NEW_ENV_VAR=$(date)" >> $GITHUB_ENV
+          echo "JOB_LEVEL_ENV=$RANDOM" >> $GITHUB_ENV
       - name: Log Custom ENV Vars
         env:
           STEP_LEVEL_ENV: Available to only this step
@@ -27,4 +28,4 @@ jobs:
           echo $NEW_ENV_VAR
           echo $STEP_LEVEL_ENV
           echo $WF_LEVEL_ENV
-          echo $JOB_LEVEL_ONE
+          echo $JOB_LEVEL_ENV
