@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   setup-go:
-    continue-on-error: false
+    continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: true
       matrix:
