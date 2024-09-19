@@ -14,21 +14,23 @@ on:
 jobs:
   prepare-matrix:
     runs-on: ubuntu-latest
+    outputs:
+      matrix-arrays: ${{ steps.matrix-arrays.outputs.result }}
     steps:
-      - run: echo ${{ fromJson(format('[{0}]', inputs.os)) }}
       - uses: actions/github-script@v6
         id: matrix-arrays
         with:
           script: "return {os: context.payload.inputs['os'].split(','),
-            'node-version': context.payload.inputs['go-version'].split(',')}"
+            'go-version': context.payload.inputs['go-version'].split(',')}"
           result-encoding: json
       - run: echo ${{ steps.matrix-arrays.outputs.result }}
   setup-go:
+    needs: prepare-matrix
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        go-version: ['1.20', '1.21', '1.22']
+        os: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays).os }}
+        go-version: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays).go-version }}
     runs-on: ${{ matrix.os }}
     steps:
       - run: echo '${{ toJson(matrix) }}'
