@@ -6,13 +6,28 @@ on:
         description: Operating Systems
         default: "windows-latest,ubuntu-latest"
         type: string
+      go-version:
+        description: Go Version
+        default: "1.20,1.21,1.22"
+        type: string
 
 jobs:
+  prepare-matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ fromJson(format('[{0}]', inputs.os)) }}
+      - uses: actions/github-script@v6
+        id: matrix-arrays
+        with:
+          script: "return {os: context.payload.inputs['os'].split(','),
+            'node-version': context.payload.inputs['go-version'].split(',')}"
+          result-encoding: json
+      - run: echo ${{ steps.matrix-arrays.outputs.result }}
   setup-go:
     strategy:
       fail-fast: true
       matrix:
-        os: ${{ fromJson(format('[{0}]', inputs.os)) }}
+        os: [ubuntu-latest, windows-latest]
         go-version: ['1.20', '1.21', '1.22']
     runs-on: ${{ matrix.os }}
     steps:
