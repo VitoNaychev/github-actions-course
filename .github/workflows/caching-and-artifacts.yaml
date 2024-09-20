@@ -11,7 +11,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/go
-          key: "go-cache"
+          key: ${{ hashFiles('./go.mod') }}
       - name: Display Cache Output
         run: echo "${{ toJson(steps.cache-dependencies.outputs) }}"
       - name: Install dependencies
