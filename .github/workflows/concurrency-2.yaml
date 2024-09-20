@@ -16,5 +16,5 @@ jobs:
   sleep:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{github.workflow.name}}
+      - run: echo ${{github.workflow}}
       - run: sleep 30
