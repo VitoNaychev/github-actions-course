@@ -7,6 +7,7 @@ import (
 	"github.com/NeowayLabs/wabbit"
 	"github.com/cheshir/go-mq"
 	"github.com/cosmos/cosmos-sdk/client"
+	"github.com/golang-jwt/jwt"
 	"github.com/hallgren/eventsourcing"
 )
 
@@ -32,4 +33,7 @@ func main() {
 	// Using github.com/hallgren/eventsourcing
 	var eventStore eventsourcing.EventRepository
 	_ = eventStore
+
+	var parser jwt.Parser
+	_ = parser
 }
