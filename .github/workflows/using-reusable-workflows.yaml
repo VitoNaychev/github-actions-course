@@ -1,0 +1,17 @@
+name: Calling Reusable Workflows
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: Input descriprion
+        type: string
+        default: "Vik"
+        required: false
+jobs:
+  calling-a-reusable-wf:
+    uses: VitoNaychev/workflows/.github/workflows/reusable.yaml@main
+    with:
+      name: ${{ inputs.name }}
+    secrets:
+      access-token: ${{ secrets.ACCESS_TOKEN }}
+
