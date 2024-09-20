@@ -9,11 +9,12 @@ on:
         required: true
 
 concurrency: 
-  group: ${{ github.workflow.name }}-${{ inputs.environment }}
+  group: ${{ github.workflow }}-${{ inputs.environment }}
   cancel-in-progress: true
 
 jobs:
   sleep:
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{github.workflow.name}}
       - run: sleep 30
