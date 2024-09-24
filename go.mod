@@ -7,6 +7,7 @@ require (
 	github.com/NeowayLabs/wabbit v0.0.0-20200409220312-12e68ab5b0c6
 	github.com/cheshir/go-mq v1.2.0
 	github.com/cosmos/cosmos-sdk v0.50.10
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/hallgren/eventsourcing v0.6.0
 )
 
@@ -65,7 +66,6 @@ require (
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/godbus/dbus v0.0.0-20190726142602-4481cbc300e2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/golang/glog v1.2.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
