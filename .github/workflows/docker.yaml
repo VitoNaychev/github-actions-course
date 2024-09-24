@@ -1,0 +1,29 @@
+name: Docker
+on: [workflow_dispatch]
+
+jobs:
+  docker-job:
+    runs-on: ubuntu-latest
+    container: 
+      image: golang:1.23.1-bookworm
+      # credentials:
+      #   username: "hello"
+      #   password: "world"
+      env:
+        API_URL: some-url.com
+      ports:
+        - 80
+      # volumes:
+      #   - vol_name;/path/in/container
+      #   - /path/to/container
+      #   - /path/in/host:/path/in/container
+      # options: --cpus 1
+    steps:
+      - name: Log Go & OS Versions
+        run: |
+          go version
+          cat /etc/os-release
+      - name: Log Env
+        run: echo "$API_URL"
+
+      
