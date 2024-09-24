@@ -16,5 +16,5 @@ jobs:
   sleep:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJson(github) }}"
+      - run: echo "${{ toJson(github.workflow) }}"
       - run: sleep 30
