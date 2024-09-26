@@ -25,5 +25,10 @@ jobs:
           cat /etc/os-release
       - name: Log Env
         run: echo "$API_URL"
+      - name: Container in a step
+        uses: docker://golang:1.20.0-bookworm
+        with:
+          entrypoint: /usr/local/go
+          cmd: version
 
       
