@@ -28,7 +28,5 @@ jobs:
       - name: Container in a step
         uses: docker://golang:1.22.7-bullseye
         with:
-          entrypoint: go
-          cmd: version
-
+          entrypoint: go version
       
