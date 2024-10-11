@@ -33,7 +33,7 @@ jobs:
           entrypoint: cat
           args: text.txt
       - name: Send a slack message
-        uses: docker://technosophos/slack-notify/
+        uses: docker://technosophos/slack-notify
         env:
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
             SLACK_TITLE: From Github Actions
