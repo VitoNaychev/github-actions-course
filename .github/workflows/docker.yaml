@@ -32,4 +32,10 @@ jobs:
         with: 
           entrypoint: cat
           args: text.txt
-      
+      - name: Send a slack message
+        uses: docker://technosophsos/slack-notify
+        env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_TITLE: From Github Actions
+            SLACK_MESSAGE: "Actor ${{ github.actor }}, Event: ${{ github.event_name }}"
+            SLACK_COLOR: "#723fc4"
